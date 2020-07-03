@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B9370FD5076307F58695A045 /* Pods_livepush.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69C81426D83DD249EC58A06C /* Pods_livepush.framework */; };
+		EA2F2F7824AF4E9E003C4913 /* PushViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2F2F7724AF4E9E003C4913 /* PushViewController.swift */; };
 		EA355EE824ACC30C00C7FA36 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EA355EE724ACC30C00C7FA36 /* GoogleService-Info.plist */; };
 		EA73DCA924ACB7D300F4EBD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73DCA824ACB7D300F4EBD0 /* AppDelegate.swift */; };
 		EA73DCAB24ACB7D300F4EBD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA73DCAA24ACB7D300F4EBD0 /* SceneDelegate.swift */; };
@@ -22,6 +23,7 @@
 		432B2A61CC9FA640E563AE55 /* Pods-livepush.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-livepush.debug.xcconfig"; path = "Target Support Files/Pods-livepush/Pods-livepush.debug.xcconfig"; sourceTree = "<group>"; };
 		69C81426D83DD249EC58A06C /* Pods_livepush.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_livepush.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA1A970D24ACBEA000A3722B /* livepush.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = livepush.entitlements; sourceTree = "<group>"; };
+		EA2F2F7724AF4E9E003C4913 /* PushViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushViewController.swift; sourceTree = "<group>"; };
 		EA355EE724ACC30C00C7FA36 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EA73DCA524ACB7D300F4EBD0 /* livepush.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = livepush.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA73DCA824ACB7D300F4EBD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				EA73DCAC24ACB7D300F4EBD0 /* ViewController.swift */,
 				EA73DCBE24ACB93500F4EBD0 /* SecondViewController.swift */,
 				EA73DCAE24ACB7D300F4EBD0 /* Main.storyboard */,
+				EA2F2F7724AF4E9E003C4913 /* PushViewController.swift */,
 				EA355EE724ACC30C00C7FA36 /* GoogleService-Info.plist */,
 				EA73DCB124ACB7D300F4EBD0 /* Assets.xcassets */,
 				EA73DCB324ACB7D300F4EBD0 /* LaunchScreen.storyboard */,
@@ -218,6 +221,7 @@
 				EA73DCBF24ACB93500F4EBD0 /* SecondViewController.swift in Sources */,
 				EA73DCAD24ACB7D300F4EBD0 /* ViewController.swift in Sources */,
 				EA73DCA924ACB7D300F4EBD0 /* AppDelegate.swift in Sources */,
+				EA2F2F7824AF4E9E003C4913 /* PushViewController.swift in Sources */,
 				EA73DCAB24ACB7D300F4EBD0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

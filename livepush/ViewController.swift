@@ -9,27 +9,32 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var inputWord: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         inputWord.attributedPlaceholder = NSAttributedString(string: "キーワードを入力")
     }
-       // ①セグエ実行前処理
+    // ①セグエ実行前処理
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    
         if segue.identifier == "toSecondView" {
-    
-               // ③遷移先ViewCntrollerの取得
+            // ③遷移先ViewCntrollerの取得
             let tweetView = segue.destination as! SecondViewController
-            print(inputWord.text!)
-               // ④値の設定
+
+            // ④値の設定
             tweetView.inputWord = self.inputWord.text!
-
-            print("here1111")
-       }
+            
+            tweetView.resultHandler = { pushed in
+                print("pushの状態：", pushed)
+                if pushed == true {
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "toPushView",sender: self)
+                    }
+                }
+            }
+        }
     }
-
 }
 
