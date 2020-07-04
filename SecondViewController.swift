@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Firebase
 
 class SecondViewController: UIViewController {
     private var tableView = UITableView()
     fileprivate var tweets: [Tweet] = []
+    var myToken: String!
     var inputWord: String!
     var timer = Timer()
     // 遷移元から処理を受け取るクロージャのプロパティを用意
@@ -27,8 +29,18 @@ class SecondViewController: UIViewController {
             tableView.rowHeight = UITableView.automaticDimension
             view.addSubview(tableView)
         }
-        
-        HitApi.fetchArticle(keyword: self.inputWord,completion: { (pushInfo) in
+//        Tokenの取得
+        InstanceID.instanceID().instanceID { (result, error) in
+          if let error = error {
+            print("Error fetching remote instance ID: \(error)")
+          } else if let result = result {
+//            print("Remote instance ID token: \(result.token)")
+            print("set token")
+            self.myToken  = result.token
+          }
+        }
+
+        HitApi.fetchArticle(keyword: self.inputWord,myToken:"skip",completion: { (pushInfo) in
             self.tweets = pushInfo.Tweets
             DispatchQueue.main.async {
                 self.tableView.reloadData()
@@ -37,7 +49,7 @@ class SecondViewController: UIViewController {
         //timer処理
         //10秒に一回通信
         timer = Timer.scheduledTimer(withTimeInterval: 10.0, repeats: true, block: { (timer) in
-            HitApi.fetchArticle(keyword: self.inputWord,completion: { (pushInfo) in
+            HitApi.fetchArticle(keyword: self.inputWord,myToken:self.myToken,completion: { (pushInfo) in
                 self.tweets = pushInfo.Tweets
                 // 用意したクロージャに関数がセットされているか確認する
                 if let handler = self.resultHandler {
@@ -112,7 +124,7 @@ struct Tweet: Codable {
 
 struct HitApi {
     
-    static func fetchArticle(keyword:String, completion: @escaping (PushInfo) -> Swift.Void) {
+    static func fetchArticle(keyword:String, myToken:String, completion: @escaping (PushInfo) -> Swift.Void) {
         
         let urlString = "https://livepush.shijimi.work/"
         
@@ -122,7 +134,8 @@ struct HitApi {
         request.addValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
         
         let params:[String:Any] = [
-            "Word": keyword
+            "Word": keyword,
+            "Token": myToken
         ]
         
         do{
